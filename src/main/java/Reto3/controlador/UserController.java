@@ -3,9 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Reto3.controlador;
+import Reto3.modelo.Order;
 import Reto3.servicio.UserService;
 import Reto3.modelo.User;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 
@@ -35,6 +37,10 @@ public class UserController {
      @GetMapping("/all")
     public List<User> getAll() {
         return userService.getAll();
+    }
+    @GetMapping("/{id}")
+    public Optional <User> getUser (@PathVariable("id") int id) {
+        return userService.getUser(id);
     }
 
     @PostMapping("/new")
